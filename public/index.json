@@ -1,0 +1,142 @@
+{
+  "$jason": {
+    "head": {
+      "title": "Jasonette Demo",
+      "actions": {
+        "$error_banner": {
+          "type": "$util.banner",
+          "options": {
+            "title": "Error",
+            "description": "Uh oh, something went wrong."
+          }
+        }
+      },
+      "templates": {
+        "body": {
+          "sections": [{
+            "items": [
+              {
+                "type": "vertical",
+                "style": {
+                  "align": "center"
+                },
+                "components": [
+                  {
+                    "type": "label",
+                    "text": "{{$jason.name}}"
+                  },
+                  {
+                    "type": "image",
+                    "url": "{{$jason.pic}}",
+                    "style": {
+                      "width": "100",
+                      "height": "100",
+                      "corner_radius": "50"
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "text": "Log out",
+                    "style": {
+                      "background": "#ff0000",
+                      "color": "#ffffff",
+                      "align": "center"
+                    },
+                    "action": {
+                      "type": "$oauth.reset",
+                      "options": {
+                        "version": "2",
+                        "client_id": "FACEBOOK_ID"
+                      },
+                      "success": {
+                        "type": "$reload"
+                      },
+                      "error": {
+                        "type": "$error_banner"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]}
+          ]
+        }
+      }
+    },
+    "body": {
+      "header": {
+        "menu": {
+          "text": "View code",
+          "href": {
+              "url": "http://www.github.com/snada/jasonette-facebook-login",
+              "view": "web"
+          }
+        }
+      },
+      "sections": [
+        {
+          "items": [
+            {
+              "type": "vertical",
+              "components": [
+                {
+                  "type": "button",
+                  "text": "Facebook Login",
+                  "style": {
+                    "background": "#3b5998",
+                    "color": "#ffffff",
+                    "align": "center"
+                  },
+                  "action": {
+                    "type": "$oauth.auth",
+                    "options": {
+                      "version": "2",
+                      "authorize": {
+                        "client_id": "FACEBOOK_ID",
+                        "scheme": "https",
+                        "host": "www.facebook.com",
+                        "path": "/v2.8/dialog/oauth",
+                        "data": {
+                          "response_type": "code",
+                          "redirect_uri": "ROOT/callback"
+                        }
+                      }
+                    },
+                    "success": {
+                      "type": "$oauth.access_token",
+                      "options": {
+                        "host": "www.facebook.com",
+                        "access": {
+                          "client_id": "FACEBOOK_ID"
+                        }
+                      },
+                      "success": {
+                        "type": "$network.request",
+                        "options": {
+                          "url": "ROOT/me",
+                          "method": "get",
+                          "data": {
+                            "access_token": "{{$jason.token}}"
+                          }
+                        },
+                        "success": {
+                          "type": "$render"
+                        },
+                        "error": {
+                          "type": "$error_banner"
+                        }
+                      }
+                    },
+                    "error": {
+                      "type": "$error_banner"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
