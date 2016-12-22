@@ -1,0 +1,3 @@
+test:
+  adapter: postgresql
+  database: jasonette_facebook_login_test
