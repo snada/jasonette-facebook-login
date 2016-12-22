@@ -1,10 +1,14 @@
 # Jasonette Facebook Login
 
+[![Build Status](https://travis-ci.org/snada/jasonette-facebook-login.svg?branch=master)](https://travis-ci.org/snada/jasonette-facebook-login)
+
 This is a sample app to illustrate the $oauth feature of [Jasonette](http://jasonette.com/), using Facebook as OAuth provider.
 
 The backend acts as JSON provider for the Jasonette client app running on a mobile device, and also contains a protected API endpoint to demonstrate how to restrict data access to authenticated users only.
 
 This is a Ruby on Rails 5 api mode app.
+
+![Gif example](public/jasonette-fb.gif)
 
 ## Install
 
@@ -61,6 +65,8 @@ Navigate the spec folder to take a closer look at the calls made by the system, 
 ```
 bundle exec rake
 ```
+
+Also, a simple code coverage is in place, just navigate the `coverage` folder once the above command finished.
 
 ## Production notes
 

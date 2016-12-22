@@ -6,3 +6,4 @@ services:
 before_script:
   - psql -c 'create database jasonette_facebook_login_test  ;' -U postgres
   - cp config/database.yml.travis config/database.yml
+  - cp config/secrets.yml.travis config/secrets.yml
