@@ -46,6 +46,14 @@ Configure your Jasonette client to liste to the same address, and the setup is d
 http://{your_local_machine_network_address}:3000
 ```
 
+The application will redirect the device browser to this custom url scheme:
+
+```
+jasonettefblogin://
+```
+
+Configure your app accordingly!
+
 ## Run
 
 Start the server with:
