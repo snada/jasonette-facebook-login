@@ -105,7 +105,7 @@
                         "client_id": "FACEBOOK_ID",
                         "scheme": "https",
                         "host": "www.facebook.com",
-                        "path": "/v2.8/oauth/access_token",
+                        "path": "/v2.8/oauth/access_token"
                       }
                     },
                     "success": {
