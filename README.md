@@ -32,7 +32,7 @@ This version was tested using ruby version 2.3.0, but it should be simple enough
 
 Go to [Facebook's developer portal](https://developers.facebook.com/) and create a new [web app](https://developers.facebook.com/quickstarts/?platform=web).
 
-Return to this project folder, and clone the `.env.example` file: rename it to `.env` and edit it so that it contains your facebook app id and secret token.
+Return to this project folder, and clone the `.env.example` file: rename it to `.env` and edit it so that it contains your Facebook app id and secret token.
 
 Go to your new app dashboard, and add Facebook login support to it. Add this callback uri to the setup:
 
@@ -40,7 +40,7 @@ Go to your new app dashboard, and add Facebook login support to it. Add this cal
 http://{your_local_machine_network_address}:3000/callback
 ```
 
-Configure your Jasonette client to liste to the same address, and the setup is done.
+Configure your Jasonette client to listen to the same address, and the setup is done.
 
 ```
 http://{your_local_machine_network_address}:3000
