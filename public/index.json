@@ -100,12 +100,6 @@
                           "response_type": "code",
                           "redirect_uri": "ROOT/callback"
                         }
-                      },
-                      "access": {
-                        "client_id": "FACEBOOK_ID",
-                        "scheme": "https",
-                        "host": "www.facebook.com",
-                        "path": "/v2.8/oauth/access_token"
                       }
                     },
                     "success": {
