@@ -111,13 +111,12 @@
                         }
                       },
                       "success": {
-                        "type": "$network.request",
+                        "type": "$oauth.request",
                         "options": {
-                          "url": "ROOT/me",
-                          "method": "get",
-                          "data": {
-                            "access_token": "{{$jason.token}}"
-                          }
+                          "client_id": "FACEBOOK_ID",
+                          "path": "/me",
+                          "scheme": "http",
+                          "host": "HOST"
                         },
                         "success": {
                           "type": "$render"

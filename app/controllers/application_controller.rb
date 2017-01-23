@@ -6,6 +6,7 @@ class ApplicationController < ActionController::API
   def index
     @data = File.read("#{Rails.root}/public/index.json")
     @data = @data.gsub("ROOT/", root_url)
+    @data = @data.gsub("HOST", request.host_with_port)
     @data = @data.gsub("FACEBOOK_ID", ENV['FACEBOOK_ID'])
     render json: @data
   end
@@ -47,7 +48,12 @@ class ApplicationController < ActionController::API
     # Helper method to access token
     #
     def current_access_token
-      params[:access_token]
+      if request.headers["HTTP_AUTHORIZATION"]
+        split = request.headers["HTTP_AUTHORIZATION"].split(" ")
+        split.last if split.first == "Bearer"
+      else
+        params[:access_token]
+      end
     end
 
     #

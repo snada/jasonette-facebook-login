@@ -20,8 +20,15 @@ RSpec.describe UsersController, type: :controller do
         to_return(status: 200, body: %Q{{"name": "User Name","id": "#{fb_user_id}"}})
     end
 
-    it 'should return user data' do
+    it 'should return user data with access token in params' do
       process :show, params: { access_token: access_token }
+
+      expect(response).to have_http_status(:ok)
+    end
+
+    it 'should return user data with access token in authorization header' do
+      @request.env['HTTP_AUTHORIZATION'] = "Bearer #{access_token}"
+      process :show
 
       expect(response).to have_http_status(:ok)
     end
