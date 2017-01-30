@@ -1,6 +1,7 @@
 # Jasonette Facebook Login
 
-[![Build Status](https://travis-ci.org/snada/jasonette-facebook-login.svg?branch=master)](https://travis-ci.org/snada/jasonette-facebook-login)
+[![Build Status](https://travis-ci.org/snada/jasonette-facebook-login.svg?branch=master)](https://travis-ci.org/snada/jasonette-facebook-login) [![Code Climate](https://codeclimate.com/github/snada/jasonette-facebook-login/badges/gpa.svg)](https://codeclimate.com/github/snada/jasonette-facebook-login) [![Test Coverage](https://codeclimate.com/github/snada/jasonette-facebook-login/badges/coverage.svg)](https://codeclimate.com/github/snada/jasonette-facebook-login/coverage) [![Issue Count](https://codeclimate.com/github/snada/jasonette-facebook-login/badges/issue_count.svg)](https://codeclimate.com/github/snada/jasonette-facebook-login)
+
 
 This is a sample app to illustrate the $oauth feature of [Jasonette](http://jasonette.com/), using Facebook as OAuth provider.
 

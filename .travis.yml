@@ -8,3 +8,8 @@ before_script:
   - cp config/database.yml.travis config/database.yml
   - cp config/secrets.yml.travis config/secrets.yml
   - cp .env.example .env
+addons:
+    code_climate:
+        repo_token: 4419efd3589990e2bcc68597c75d618a5f6a6748330683f336d44750c4a07fa6
+after_success:
+  - bundle exec codeclimate-test-reporter
