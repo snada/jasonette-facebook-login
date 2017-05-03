@@ -8,6 +8,7 @@ class ApplicationController < ActionController::API
     @data = @data.gsub("ROOT/", root_url)
     @data = @data.gsub("HOST", request.host_with_port)
     @data = @data.gsub("FACEBOOK_ID", ENV['FACEBOOK_ID'])
+    @data = @data.gsub("FACEBOOK_SECRET", ENV['FACEBOOK_SECRET'])
     render json: @data
   end
 

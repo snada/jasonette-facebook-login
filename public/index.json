@@ -116,6 +116,78 @@
                           "client_id": "FACEBOOK_ID",
                           "path": "/me",
                           "scheme": "http",
+                          "host": "HOST",
+                          "data": {
+                            "param": "value"
+                          }
+                        },
+                        "success": {
+                          "type": "$render"
+                        },
+                        "error": {
+                          "type": "$error_banner"
+                        }
+                      }
+                    },
+                    "error": {
+                      "type": "$error_banner"
+                    }
+                  }
+                },
+                {
+                  "type": "space",
+                  "style": {
+                    "height": "20"
+                  }
+                },
+                {
+                  "type": "button",
+                  "text": "Facebook Direct Login",
+                  "style": {
+                    "background": "#3b5998",
+                    "color": "#ffffff",
+                    "align": "center"
+                  },
+                  "action": {
+                    "type": "$oauth.auth",
+                    "options": {
+                      "version": "2",
+                      "authorize": {
+                        "client_id": "FACEBOOK_ID",
+                        "client_secret": "FACEBOOK_SECRET",
+                        "scheme": "https",
+                        "host": "www.facebook.com",
+                        "path": "/v2.8/dialog/oauth",
+                        "data": {
+                          "response_type": "code",
+                          "redirect_uri": "http://oauth.oauth/"
+                        }
+                      },
+                      "access": {
+                        "scheme": "https",
+                        "host": "graph.facebook.com",
+                        "path": "/v2.8/oauth/access_token",
+                        "client_id": "FACEBOOK_ID",
+                        "client_secret": "FACEBOOK_SECRET",
+                        "data": {
+                          "redirect_uri": "http://oauth.oauth/"
+                        }
+                      }
+                    },
+                    "success": {
+                      "type": "$oauth.access_token",
+                      "options": {
+                        "host": "www.facebook.com",
+                        "access": {
+                          "client_id": "FACEBOOK_ID"
+                        }
+                      },
+                      "success": {
+                        "type": "$oauth.request",
+                        "options": {
+                          "client_id": "FACEBOOK_ID",
+                          "path": "/me",
+                          "scheme": "http",
                           "host": "HOST"
                         },
                         "success": {
