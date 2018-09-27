@@ -1,6 +1,9 @@
 language: ruby
 rvm:
   - 2.3.0
+env:
+  global:
+    - CC_TEST_REPORTER_ID=4419efd3589990e2bcc68597c75d618a5f6a6748330683f336d44750c4a07fa6
 services:
   - postgresql
 before_script:
@@ -8,8 +11,11 @@ before_script:
   - cp config/database.yml.travis config/database.yml
   - cp config/secrets.yml.travis config/secrets.yml
   - cp .env.example .env
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 addons:
     code_climate:
         repo_token: 4419efd3589990e2bcc68597c75d618a5f6a6748330683f336d44750c4a07fa6
-after_success:
-  - bundle exec codeclimate-test-reporter
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
