@@ -16,7 +16,7 @@ RSpec.describe UsersController, type: :controller do
       FactoryBot.create(:user, fb_id: fb_user_id)
 
       stub_request(:get, "https://graph.facebook.com/me?access_token=#{access_token}&appsecret_proof=#{appsecret_proof}").
-        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Faraday v0.15.3'}).
+        with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Faraday v0.15.4'}).
         to_return(status: 200, body: %Q{{"name": "User Name","id": "#{fb_user_id}"}})
     end
 

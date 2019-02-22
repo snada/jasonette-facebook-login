@@ -19,7 +19,7 @@ Clone this repo, navigate to it's folder and run
 bundle install
 ```
 
-Take a look at the config folder: you'll find a `database.yml.example`: clone it and rename it `database.yml`, modify it according to your system setup.
+Take a look at the config folder: you'll find a `database.yml.example`: clone it and rename it `database.yml`, modify it according to your system setup. Do the same with the `secrets.yml.example` file in the same directory.
 
 Then run:
 
